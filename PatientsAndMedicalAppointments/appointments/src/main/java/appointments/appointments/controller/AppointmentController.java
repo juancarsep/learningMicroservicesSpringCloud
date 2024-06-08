@@ -1,7 +1,7 @@
 package appointments.appointments.controller;
 
+import appointments.appointments.dto.AppointmentDTO;
 import appointments.appointments.model.Appointment;
-import appointments.appointments.model.Patient;
 import appointments.appointments.service.IAppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,8 +24,8 @@ public class AppointmentController {
     }
 
     @PostMapping("/appointments")
-    public void saveAppointment(@RequestBody Appointment appo){
-        service.saveAppo(appo);
+    public void saveAppointment(@RequestBody AppointmentDTO appointmentDTO){
+        service.saveAppo(appointmentDTO);
     }
 
     @PutMapping("/appointments/{id}")

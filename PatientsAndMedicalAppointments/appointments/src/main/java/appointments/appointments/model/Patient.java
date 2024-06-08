@@ -13,6 +13,7 @@ import java.util.Date;
 public class Patient {
 
     private Long id;
+    private String dni;
     private String name;
     private String lastname;
     private Date birthDate;

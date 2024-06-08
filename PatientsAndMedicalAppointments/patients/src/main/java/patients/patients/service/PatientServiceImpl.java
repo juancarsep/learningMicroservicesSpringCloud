@@ -45,4 +45,9 @@ public class PatientServiceImpl implements IPatientService{
     public void deletePatient(Long id) {
         repo.deleteById(id);
     }
+
+    @Override
+    public Patient findPatientByDni(String dni) {
+        return repo.findByDni(dni);
+    }
 }

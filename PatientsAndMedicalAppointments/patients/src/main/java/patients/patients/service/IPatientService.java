@@ -11,4 +11,5 @@ public interface IPatientService {
     public void savePatient(Patient p);
     public void editPatient(Long id, Patient p);
     public void deletePatient(Long id);
+    public Patient findPatientByDni(String dni);
 }

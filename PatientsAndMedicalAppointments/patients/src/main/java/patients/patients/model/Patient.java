@@ -19,6 +19,7 @@ public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+    private String dni;
     private String name;
     private String lastname;
     private Date birthDate;

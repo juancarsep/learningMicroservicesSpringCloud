@@ -11,7 +11,7 @@ import java.util.List;
 public class PatientController {
 
     @Autowired
-    IPatientService service;
+    private IPatientService service;
 
     @GetMapping("/patients")
     public List<Patient> getPatients(){
@@ -37,5 +37,10 @@ public class PatientController {
     @DeleteMapping("/patients/{id}")
     public void deletePatient(@PathVariable Long id){
         service.deletePatient(id);
+    }
+
+    @GetMapping("/patients/getdni/{dni}")
+    public Patient getPatientByDni(@PathVariable String dni){
+        return service.findPatientByDni(dni);
     }
 }
