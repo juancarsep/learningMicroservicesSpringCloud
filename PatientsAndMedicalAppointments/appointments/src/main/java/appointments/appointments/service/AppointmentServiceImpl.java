@@ -4,6 +4,7 @@ import appointments.appointments.dto.AppointmentDTO;
 import appointments.appointments.model.Appointment;
 import appointments.appointments.model.Patient;
 import appointments.appointments.repository.IAppointmentRepository;
+import appointments.appointments.repository.IPatientAPIClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -15,8 +16,14 @@ import java.util.List;
 public class AppointmentServiceImpl implements IAppointmentService{
     @Autowired
     private IAppointmentRepository repo;
+
+    //Queda sin uso gracias a IPatientAPIClient
     @Autowired
     private RestTemplate consumeApi;
+
+
+    @Autowired
+    private IPatientAPIClient patientApi;
 
     @Override
     public List<Appointment> getAppointments() {
@@ -31,7 +38,7 @@ public class AppointmentServiceImpl implements IAppointmentService{
     @Override
     public void saveAppo(AppointmentDTO appointmentDTO) {
 
-        Patient pat = consumeApi.getForObject("http://localhost:9001/patients/getdni/" + appointmentDTO.getDni(), Patient.class);
+        Patient pat = patientApi.getPatient(appointmentDTO.getDni());
 
         if(pat != null){
             String fullname = pat.getName() + " " + pat.getLastname();
