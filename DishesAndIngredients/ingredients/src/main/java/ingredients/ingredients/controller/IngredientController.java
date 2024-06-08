@@ -22,7 +22,7 @@ public class IngredientController {
         return service.getIngredient(id);
     }
 
-    @GetMapping("/ingredients/{dish}")
+    @GetMapping("/ingredientsfordish/{dish}")
     public List<String> getIngredientsForDish(@PathVariable String dish){
         return service.getIngredientsForDish(dish);
     }

@@ -19,6 +19,5 @@ public class Dish {
     private String name;
     private double price;
     private String description;
-    @OneToMany
     private List<String> ingredients;
 }

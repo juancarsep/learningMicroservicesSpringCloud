@@ -21,7 +21,7 @@ public class DishServiceImpl implements IDishService{
     @Override
     public void saveDish(DishDTO dishDto) {
         Dish dish = new Dish();
-        List<String> ingredients = Arrays.asList(consumeApi.getForObject("http://localhost:9002/ingredients/" + dishDto.getName(), String.class));
+        List<String> ingredients = Arrays.asList(consumeApi.getForObject("http://localhost:9002/ingredientsfordish/" + dishDto.getName(), String.class));
 
         dish.setName(dishDto.getName());
         dish.setPrice(dishDto.getPrice());
