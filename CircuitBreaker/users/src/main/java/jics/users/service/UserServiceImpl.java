@@ -45,6 +45,9 @@ public class UserServiceImpl implements IUserService{
             userDto.setMobilePhone(user.getMobilePhone());
             userDto.setPosts(posts);
         }
+
+        this.createException();
+
         return userDto;
     }
 
@@ -68,5 +71,9 @@ public class UserServiceImpl implements IUserService{
     @Override
     public void deleteUser(Long id) {
         repo.deleteById(id);
+    }
+
+    public void createException(){
+        throw new IllegalArgumentException("Prueba con Resilience y Circuit Breaker");
     }
 }
