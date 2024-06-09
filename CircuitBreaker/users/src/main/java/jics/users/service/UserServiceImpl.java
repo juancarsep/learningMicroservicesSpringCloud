@@ -1,6 +1,7 @@
 package jics.users.service;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.retry.annotation.Retry;
 import jics.users.dto.PostDTO;
 import jics.users.dto.UserDTO;
 import jics.users.model.User;
@@ -35,6 +36,7 @@ public class UserServiceImpl implements IUserService{
 
     @Override
     @CircuitBreaker(name="posts", fallbackMethod = "fallbackGetPostsByUserId")
+    @Retry(name = "posts")
     public UserDTO getPostsByUserId(Long userId) {
         User user = this.getUser(userId);
         UserDTO userDto = new UserDTO();

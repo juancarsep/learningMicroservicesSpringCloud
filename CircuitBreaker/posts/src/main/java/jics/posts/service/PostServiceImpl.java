@@ -3,9 +3,11 @@ package jics.posts.service;
 import jics.posts.model.Post;
 import jics.posts.repository.IPostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class PostServiceImpl implements IPostService{
     @Autowired
     private IPostRepository repo;
