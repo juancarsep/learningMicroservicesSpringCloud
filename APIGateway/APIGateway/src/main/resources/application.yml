@@ -1,0 +1,15 @@
+server:
+  port: 8081`
+
+spring:
+  application:
+    name: configServer
+
+cloud:
+  config:
+    server:
+      git:
+        url: https://github.com/juancarsep/config-server-test.git
+        searchPaths: config-data
+        username: ${GIT_USER}
+        password: ${GIT_PASSWORD}
